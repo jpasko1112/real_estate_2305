@@ -65,4 +65,24 @@ RSpec.describe House do
       expect(@house.details).to eq({"price" => 400000, "address" => "123 sugar lane"})
     end
   end
+
+  describe '#price_per)square_foot' do
+    it 'calculates price per square foot' do
+      @house.add_room(@room1)
+      @house.add_room(@room2)
+      @house.add_room(@room3)
+      @house.add_room(@room4)
+      expect(@house.price_per_square_foot).to eq(210.53)
+    end
+  end
+
+  describe '#rooms_sorted_by_area' do
+    it 'returns an array or rooms sorted by area' do
+      @house.add_room(@room1)
+      @house.add_room(@room2)
+      @house.add_room(@room3)
+      @house.add_room(@room4)
+      expect(@house.rooms_sorted_by_area).to eq([@room4, @room3, @room2, @room1])
+    end
+  end
 end
